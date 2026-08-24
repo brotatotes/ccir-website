@@ -33,7 +33,7 @@ MAP = {
         "gallery-group-dog", 0,
         "A joyful group photo during a home gathering"),
     "394b18_9f54feb61fb94ec887e254d56f8e291c": (
-        "gallery-together", 180,
+        "gallery-together", 0,
         "Believers gathered together in fellowship"),
     "394b18_d0a7fa7dc1284c3fa35100bc286cb402": (
         "gallery-cafe", 0,

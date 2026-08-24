@@ -120,7 +120,7 @@ def parse(rel):
 
 # ---------------------------------------------------------------- 1. build present
 PAGES = ["index.html", "statement-of-faith/index.html",
-         "messages/index.html", "visit/index.html", "404.html"]
+         "messages/index.html", "contact/index.html", "404.html"]
 for pg in PAGES:
     check(exists(pg), f"missing built page: {pg}")
 
@@ -193,9 +193,12 @@ check("<iframe" not in msgs, "[messages] iframe should be injected by JS, not pr
 check("youtube-nocookie.com" in read("assets/main.js"), "[js] should use youtube-nocookie embeds")
 
 home = read("index.html")
-check("christianchurchinraleigh@gmail.com" in read("visit/index.html"), "[visit] missing contact email")
-check("MLK Pkwy" in read("visit/index.html"), "[visit] missing meeting place")
+check("christianchurchinraleigh@gmail.com" in read("contact/index.html"), "[contact] missing contact email")
+check("MLK Pkwy" in read("contact/index.html"), "[contact] missing meeting place")
 check("10:00 AM" in home or "10AM" in home, "[home] missing Sunday service time")
+for phrase in ["plan your visit", "plan a visit", "visit &amp; contact"]:
+    check(phrase not in "\n".join(read(pg).lower() for pg in PAGES),
+          f"site still contains unwanted visit-planning language: {phrase!r}")
 
 # ---------------------------------------------------------------- 5. NO Wix placeholder leakage
 for pg in PAGES:
@@ -205,12 +208,12 @@ for pg in PAGES:
         check(bad not in txt, f"[{pg}] contains placeholder/Wix leftover: {bad!r}")
 
 # ---------------------------------------------------------------- 6. contact form is disabled/demo
-visit = read("visit/index.html")
-check('data-demo="true"' in visit, "[visit] contact form not marked demo")
-check("formspree" in visit.lower(), "[visit] no Formspree guidance in contact form")
+visit = read("contact/index.html")
+check('data-demo="true"' in visit, "[contact] contact form not marked demo")
+check("formspree" in visit.lower(), "[contact] no Formspree guidance in contact form")
 # form must not POST anywhere yet
-check(not re.search(r'<form[^>]*\baction=', visit), "[visit] demo form should have no action= yet")
-check(visit.count("disabled") >= 4, "[visit] demo form fields/button should be disabled")
+check(not re.search(r'<form[^>]*\baction=', visit), "[contact] demo form should have no action= yet")
+check(visit.count("disabled") >= 4, "[contact] demo form fields/button should be disabled")
 
 # ---------------------------------------------------------------- 7. deploy + redirect files
 for f in ["CNAME", "robots.txt", "sitemap.xml", "site.webmanifest",
@@ -220,7 +223,8 @@ check(read("CNAME").strip() == "ccir.brotatotes.com", "CNAME must be ccir.brotat
 
 for legacy, target in [("about-2/index.html", "/statement-of-faith/"),
                        ("about-3/index.html", "/statement-of-faith/"),
-                       ("visit-us/index.html", "/visit/")]:
+                       ("visit/index.html", "/contact/"),
+                       ("visit-us/index.html", "/contact/")]:
     check(exists(legacy), f"missing legacy redirect: {legacy}")
     if exists(legacy):
         r = read(legacy)

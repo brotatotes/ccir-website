@@ -30,7 +30,7 @@ ROUTES = {
     "index.html": "index.html",
     "statement-of-faith.html": "statement-of-faith/index.html",
     "messages.html": "messages/index.html",
-    "visit.html": "visit/index.html",
+    "visit.html": "contact/index.html",
     "404.html": "404.html",
 }
 
@@ -43,7 +43,8 @@ ACTIVE_ATTR = ' aria-current="page"'
 REDIRECTS = {
     "about-2/index.html": "/statement-of-faith/",   # old Statement of Faith
     "about-3/index.html": "/statement-of-faith/",   # legacy about page
-    "visit-us/index.html": "/visit/",               # old (stub) visit page
+    "visit/index.html": "/contact/",                # first static preview path
+    "visit-us/index.html": "/contact/",             # old Wix template path
 }
 
 REDIRECT_TEMPLATE = """<!DOCTYPE html>

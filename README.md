@@ -6,7 +6,7 @@ a tiny bit of JavaScript, and some images — the kind of site that will keep
 working for many years with very little maintenance.
 
 - **Live address (during review):** https://ccir.brotatotes.com
-- **Pages:** Home · Statement of Faith · Sunday Messages · Visit & Contact
+- **Pages:** Home · Statement of Faith · Sunday Messages · Contact
 - **Hosting:** GitHub Pages (free)
 
 ---
@@ -44,7 +44,7 @@ Open the file you want to change in any text editor (even Notepad or TextEdit):
 | Home page                         | `src/pages/index.html`                  |
 | Statement of Faith                | `src/pages/statement-of-faith.html`     |
 | Sunday Messages (videos)          | `src/pages/messages.html`               |
-| Visit & Contact info / times      | `src/pages/visit.html`                  |
+| Contact info / meeting times      | `src/pages/visit.html`                  |
 | The top menu (all pages)          | `src/partials/header.html`              |
 | The footer (all pages)            | `src/partials/footer.html`              |
 
@@ -102,7 +102,7 @@ page too), rebuild, and publish. The footer email/place lives in
 `src/partials/footer.html`.
 
 ### Turn on the contact form (about 5 minutes, no coding)
-The contact form on **Visit & Contact** is intentionally switched off right now,
+The contact form on **Contact** is intentionally switched off right now,
 so no visitor message is ever silently lost. To make it live with a free
 [Formspree](https://formspree.io) account:
 
@@ -137,7 +137,7 @@ so no visitor message is ever silently lost. To make it live with a free
   thumbnail and only loads YouTube (via the privacy-friendly
   `youtube-nocookie.com`) after a visitor clicks play.
 - **Old links keep working:** `/about-2` and `/about-3` redirect to
-  `/statement-of-faith/`, `/visit-us` redirects to `/visit/`, and `/messages`
+  `/statement-of-faith/`, `/visit` and `/visit-us` redirect to `/contact/`, and `/messages`
   is kept as-is.
 - **Design system** lives in `site/assets/styles.css` (navy `#3f4359` / off-white
   identity, responsive layout, accessible focus states, reduced-motion support).
