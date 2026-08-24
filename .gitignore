@@ -1,0 +1,19 @@
+# Working files that shouldn't ship or bloat the repo.
+# The raw multi-megabyte originals and preview thumbnails are only used
+# locally by process_images.py; the optimized, metadata-stripped outputs
+# in site/assets/img/ are what actually get published.
+assets-raw/
+thumbs/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+
+# One-time source-audit artifacts, not part of the maintained website
+home.html
+sitemap.xml
+pages-sitemap.xml
+SOURCE_INVENTORY.md
+source-pages.json
+PROJECT_DECISIONS.md
