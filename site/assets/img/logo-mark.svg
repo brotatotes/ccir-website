@@ -1,8 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Christian Church In Raleigh monogram">
-  <rect width="64" height="64" rx="14" fill="#3f4359"/>
-  <!-- cross -->
-  <rect x="29" y="14" width="6" height="36" rx="2" fill="#ffffff"/>
-  <rect x="20" y="24" width="24" height="6" rx="2" fill="#ffffff"/>
-  <!-- accent underline -->
-  <rect x="20" y="53" width="24" height="3" rx="1.5" fill="#e03939"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 225" role="img" aria-label="Christian Church In Raleigh Bible and cross logo">
+  <rect x="25" y="25" width="150" height="175" rx="17" fill="#3f4359"/>
+  <path d="M43 184h114" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M100 61v94M66 94h68" fill="none" stroke="#c69750" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
