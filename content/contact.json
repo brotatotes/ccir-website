@@ -1,0 +1,53 @@
+{
+  "eyebrow": "Contact",
+  "title": "Get in touch",
+  "intro": "Reach out for more information about our Sunday service, Bible studies, prayer gathering, and church life.",
+  "cta_heading": "Come as you are",
+  "cta_text": "You don't need to know anyone or bring anything — just come. We're looking forward to connecting with you.",
+  "email": "christianchurchinraleigh@gmail.com",
+  "meeting_place": "Home gathering off of MLK Pkwy in Durham, NC.",
+  "meeting_note": "Email us for the exact address and directions — we'll be glad to help you find us.",
+  "sunday_service": "10:00 AM · children's service provided",
+  "schedule_eyebrow": "When we gather",
+  "schedule_heading": "Our weekly rhythm",
+  "schedule": [
+    {
+      "title": "Sunday Service",
+      "times": [
+        {
+          "day": "Sundays",
+          "time": "10:00 AM"
+        }
+      ],
+      "note": "Children's service provided. We gather around the Lord's Table and God's Word."
+    },
+    {
+      "title": "Bible Study",
+      "times": [
+        {
+          "day": "Tuesdays",
+          "time": "Zoom · 8:30 PM"
+        },
+        {
+          "day": "Thursdays",
+          "time": "Women's · 7:45 PM"
+        },
+        {
+          "day": "Sundays",
+          "time": "Men's · 4:30 PM"
+        }
+      ],
+      "note": "We're open to more Bible study times based on individual needs. We love the Bible!"
+    },
+    {
+      "title": "Prayer Gathering",
+      "times": [
+        {
+          "day": "Thursdays",
+          "time": "5:30 PM"
+        }
+      ],
+      "note": "Seeking the Lord together and praying for one another and for the gospel."
+    }
+  ]
+}

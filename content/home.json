@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "heading_intro": "Welcome to",
+    "heading_highlight": "Christian Church In Raleigh",
+    "text": "Brothers and sisters centered on Christ and the Bible — gathering in Raleigh and Durham to worship, grow, and build one another up in the faith.",
+    "image": "/assets/img/hero-fellowship-1280.jpg",
+    "image_alt": "Members of Christian Church In Raleigh gathered together in fellowship",
+    "service_time": "Sundays at 10:00 AM",
+    "location": "Home gathering off MLK Pkwy, Durham"
+  },
+  "who": {
+    "eyebrow": "Who we are",
+    "heading": "One with all who belong to Christ",
+    "text": "As brothers and sisters centered on Christ and the Bible, we stand on the ground that all regenerated Christians are one. For this reason, we take no other name than the city in which we gather."
+  },
+  "believe": {
+    "eyebrow": "What we believe",
+    "heading": "The gospel in a few sentences",
+    "image": "/assets/img/gallery-home-group-1000.jpg",
+    "image_alt": "A home gathering of the church meeting together around the Word",
+    "body": "<p>The Bible is the inspired word of God. God is triune; He is one, yet at the same time, the Father, the Son, and the Holy Spirit.</p>\n<p>God was incarnated, becoming a man, Jesus Christ. He died and shed His blood to accomplish redemption for our sins, and resurrected as the life-giving Spirit to regenerate us with the life of God.</p>\n<p>He is enthroned in the Heavens and will physically come back a second time when God brings this age of grace to a close to bring in His kingdom.</p>\n<p><a href=\"/statement-of-faith/\">Read our full Statement of Faith →</a></p>"
+  },
+  "gatherings": {
+    "eyebrow": "Weekly gatherings",
+    "heading": "Come and enjoy the Lord with us",
+    "cards": [
+      {
+        "title": "Bible Study",
+        "icon": "bible",
+        "times": [
+          {
+            "day": "Tuesdays",
+            "time": "Zoom · 8:30 PM"
+          },
+          {
+            "day": "Thursdays",
+            "time": "Women's · 7:45 PM"
+          },
+          {
+            "day": "Sundays",
+            "time": "Men's · 4:30 PM"
+          }
+        ],
+        "note": "We are open to more Bible study times based on individual needs. We love the Bible!"
+      },
+      {
+        "title": "Sunday Service",
+        "icon": "house",
+        "times": [
+          {
+            "day": "Sundays",
+            "time": "10:00 AM"
+          }
+        ],
+        "note": "Children's service provided. A warm, family-friendly gathering around the Lord's Table and God's Word."
+      },
+      {
+        "title": "Prayer Gathering",
+        "icon": "prayer",
+        "times": [
+          {
+            "day": "Thursdays",
+            "time": "5:30 PM"
+          }
+        ],
+        "note": "Coming together to seek the Lord and pray for one another and for the gospel."
+      }
+    ],
+    "footer_note": "For more information, please <a href=\"/contact/\">reach out</a> if you would like to enjoy our gatherings with us!"
+  },
+  "life": {
+    "eyebrow": "Our church life",
+    "heading": "Fellowship, every day of the week",
+    "columns": [
+      {
+        "heading": "Fellowship during the week",
+        "text": "We hold to the practice of a church-life that the New Testament saints and apostles enjoyed, which is receiving one another's portion of grace in Christ every day of the week through multiple settings."
+      },
+      {
+        "heading": "Home gatherings",
+        "text": "To this purpose, we gather as often as we can in the homes to worship, minister to one another, and build each other up in the faith."
+      },
+      {
+        "heading": "Sunday service",
+        "text": "We view Sunday as a precious and meaningful day for gathering together while enjoying our Christian life and a full church life!"
+      }
+    ],
+    "body": "<p>Our Sunday gatherings are made up of several parts: <strong>(1)</strong> enjoying the Lord's Table, which is the practice of Christians taking the bread and the cup together to symbolize the New Covenant and remember the Lord's death until He comes; during this time, we sing hymns, pray, and mutually encourage one another in the Spirit; <strong>(2)</strong> we read through portions of scripture together and have fellowship concerning God's Word, striving to know God's will through His Word, which is our unique standard as believers.</p>"
+  },
+  "gallery": {
+    "eyebrow": "Life together",
+    "heading": "Glimpses of our church family",
+    "photos": [
+      {
+        "image": "/assets/img/gallery-together-600.jpg",
+        "alt": "Believers gathered together in fellowship"
+      },
+      {
+        "image": "/assets/img/gallery-bible-study-600.jpg",
+        "alt": "A small group seated together for Bible study with Scripture in hand"
+      },
+      {
+        "image": "/assets/img/gallery-meal-600.jpg",
+        "alt": "Sharing a meal together as a church family"
+      },
+      {
+        "image": "/assets/img/gallery-outdoor-singing-600.jpg",
+        "alt": "Outdoor gathering with a guitar and singing together"
+      },
+      {
+        "image": "/assets/img/gallery-group-smiles-600.jpg",
+        "alt": "A group of believers smiling together after a gathering"
+      },
+      {
+        "image": "/assets/img/gallery-smores-600.jpg",
+        "alt": "Members enjoying s'mores under string lights at a fellowship evening"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "We'd love to meet you",
+    "text": "Whether you're exploring faith for the first time or looking for a church family, there's a place for you at our table. Reach out and we'll help you find your first gathering."
+  }
+}

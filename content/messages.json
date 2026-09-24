@@ -1,0 +1,42 @@
+{
+  "eyebrow": "Sunday messages",
+  "title": "Messages & singing from our gatherings",
+  "intro": "A selection of recordings from our Sunday services and fellowship. Click any video to play it here, or watch on our YouTube channel for the latest.",
+  "youtube_channel": "https://www.youtube.com/@CCIR_",
+  "videos": [
+    {
+      "title": "Intrinsic Identity & Testimony",
+      "youtube": "https://www.youtube.com/watch?v=brYjJuQpb78"
+    },
+    {
+      "title": "Gospel bell",
+      "youtube": "https://www.youtube.com/watch?v=028NHl--m7Y"
+    },
+    {
+      "title": "Hebrews 5 – Spiritual Immaturity",
+      "youtube": "https://www.youtube.com/watch?v=JJqFPRXxdL0"
+    },
+    {
+      "title": "Enjoying some singing together",
+      "youtube": "https://www.youtube.com/watch?v=f_GsQJdqbpk"
+    },
+    {
+      "title": "Maintaining the place of Fellowship pt 2",
+      "youtube": "https://www.youtube.com/watch?v=u4ATLIqxQVI"
+    },
+    {
+      "title": "Maintaining the place of fellowship",
+      "youtube": "https://www.youtube.com/watch?v=UFvli50BBb4"
+    },
+    {
+      "title": "Fellowship of life 2 Part B",
+      "youtube": "https://www.youtube.com/watch?v=E0B1lYP3DHo"
+    },
+    {
+      "title": "The Fellowship of Life 2 Part A",
+      "youtube": "https://www.youtube.com/watch?v=jko1U2Uik8k"
+    }
+  ],
+  "cta_heading": "Prefer to be there in person?",
+  "cta_text": "Join us on a Sunday at 10:00 AM. We'd love to welcome you and worship together."
+}

@@ -1,0 +1,324 @@
+media:
+  input: static/assets/img
+  output: /assets/img
+  extensions: [jpg, jpeg, png, webp, gif]
+  rename: safe
+
+settings:
+  commit:
+    identity: user
+
+content:
+  - name: home
+    label: Home page
+    type: file
+    path: content/home.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - name: hero
+        label: Top banner
+        type: object
+        fields:
+          - { name: heading_intro, label: Heading (first part), type: string }
+          - { name: heading_highlight, label: Heading (highlighted part), type: string }
+          - { name: text, label: Welcome text, type: text }
+          - { name: image, label: Background photo, type: image }
+          - { name: image_alt, label: Photo description (for screen readers), type: string }
+          - { name: service_time, label: Service time line, type: string }
+          - { name: location, label: Location line, type: string }
+      - name: who
+        label: Who we are
+        type: object
+        fields:
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+      - name: believe
+        label: What we believe
+        type: object
+        fields:
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+          - name: body
+            label: Text
+            type: rich-text
+            options: { format: html, switcher: false }
+      - name: gatherings
+        label: Weekly gatherings
+        type: object
+        fields:
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - name: cards
+            label: Gatherings
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - { name: title, label: Name, type: string }
+              - name: icon
+                label: Icon
+                type: select
+                options:
+                  values:
+                    - { name: bible, label: Bible }
+                    - { name: house, label: House }
+                    - { name: prayer, label: Prayer }
+                    - { name: people, label: People }
+                    - { name: calendar, label: Calendar }
+              - name: times
+                label: Times
+                type: object
+                list:
+                  collapsible:
+                    collapsed: false
+                    summary: "{day} · {time}"
+                fields:
+                  - { name: day, label: Day, type: string }
+                  - { name: time, label: Time, type: string }
+              - { name: note, label: Note, type: text }
+          - name: footer_note
+            label: Note under the gatherings
+            type: rich-text
+            options: { format: html, switcher: false, media: false }
+      - name: life
+        label: Church life
+        type: object
+        fields:
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - name: columns
+            label: Columns
+            type: object
+            list:
+              max: 3
+              collapsible:
+                collapsed: true
+                summary: "{heading}"
+            fields:
+              - { name: heading, label: Heading, type: string }
+              - { name: text, label: Text, type: text }
+          - name: body
+            label: Text below the columns
+            type: rich-text
+            options: { format: html, switcher: false }
+      - name: gallery
+        label: Photo gallery
+        type: object
+        fields:
+          - { name: eyebrow, label: Small label above heading, type: string }
+          - { name: heading, label: Heading, type: string }
+          - name: photos
+            label: Photos
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{alt}"
+            fields:
+              - { name: image, label: Photo, type: image }
+              - { name: alt, label: Photo description, type: string }
+      - name: cta
+        label: Bottom invitation
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+
+  - name: messages
+    label: Sunday Messages
+    type: file
+    path: content/messages.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - name: videos
+        label: Videos (newest first)
+        description: Paste the YouTube link for each video. Drag to reorder.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: youtube, label: YouTube link, type: string, required: true }
+      - { name: eyebrow, label: Small label above page title, type: string }
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - { name: youtube_channel, label: YouTube channel link, type: string }
+      - { name: cta_heading, label: Bottom invitation heading, type: string }
+      - { name: cta_text, label: Bottom invitation text, type: text }
+
+  - name: faith
+    label: Statement of Faith
+    type: file
+    path: content/statement-of-faith.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: eyebrow, label: Small label above page title, type: string }
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - name: points
+        label: Points (numbered automatically)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index}. {heading}"
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+      - { name: cta_heading, label: Bottom invitation heading, type: string }
+      - { name: cta_text, label: Bottom invitation text, type: text }
+
+  - name: contact
+    label: Contact page
+    type: file
+    path: content/contact.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: eyebrow, label: Small label above page title, type: string }
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - { name: schedule_eyebrow, label: Schedule small label, type: string }
+      - { name: schedule_heading, label: Schedule heading, type: string }
+      - name: schedule
+        label: Weekly schedule
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: title, label: Name, type: string }
+          - name: times
+            label: Times
+            type: object
+            list:
+              collapsible:
+                collapsed: false
+                summary: "{day} · {time}"
+            fields:
+              - { name: day, label: Day, type: string }
+              - { name: time, label: Time, type: string }
+          - { name: note, label: Note, type: text }
+      - { name: email, label: Email, type: string }
+      - { name: meeting_place, label: Where we meet, type: string }
+      - { name: meeting_note, label: Note under meeting place, type: string }
+      - { name: sunday_service, label: Sunday service line, type: string }
+      - { name: cta_heading, label: Bottom invitation heading, type: string }
+      - { name: cta_text, label: Bottom invitation text, type: text }
+
+  - name: pages
+    label: Extra pages
+    type: collection
+    path: content/pages
+    format: json
+    exclude: [.gitkeep]
+    filename:
+      template: "{title}.json"
+      field: false
+    view:
+      primary: title
+      fields: [title, show_in_menu]
+    fields:
+      - name: title
+        label: Page title
+        type: string
+        required: true
+        description: The web address is made from the title when the page is first created.
+      - { name: eyebrow, label: Small label above the title, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - { name: show_in_menu, label: Show in the top menu, type: boolean }
+      - { name: menu_label, label: "Menu label (optional, defaults to the title)", type: string }
+      - { name: menu_order, label: Menu position (1 = first), type: number }
+      - { name: published, label: Published, type: boolean, default: true }
+      - name: sections
+        label: Sections
+        description: Add, remove, and drag sections to build the page.
+        type: block
+        blockKey: type
+        list:
+          collapsible:
+            collapsed: false
+        blocks:
+          - name: text
+            label: Text
+            fields:
+              - { name: heading, label: Heading (optional), type: string }
+              - name: body
+                label: Text
+                type: rich-text
+                options: { format: html }
+              - { name: shaded, label: Shaded background, type: boolean }
+          - name: image_text
+            label: Photo with text
+            fields:
+              - { name: heading, label: Heading (optional), type: string }
+              - name: body
+                label: Text
+                type: rich-text
+                options: { format: html }
+              - { name: image, label: Photo, type: image }
+              - { name: image_alt, label: Photo description, type: string }
+              - name: image_side
+                label: Photo side
+                type: select
+                options:
+                  values:
+                    - { name: left, label: Left }
+                    - { name: right, label: Right }
+              - { name: shaded, label: Shaded background, type: boolean }
+          - name: columns
+            label: Columns
+            fields:
+              - { name: heading, label: Heading (optional), type: string }
+              - name: columns
+                label: Columns (2 or 3)
+                type: object
+                list: { max: 3, collapsible: false }
+                fields:
+                  - { name: heading, label: Heading, type: string }
+                  - name: text
+                    label: Text
+                    type: rich-text
+                    options: { format: html, media: false }
+              - { name: shaded, label: Shaded background, type: boolean }
+          - name: video
+            label: YouTube video
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: youtube, label: YouTube link, type: string }
+              - { name: shaded, label: Shaded background, type: boolean }
+          - name: cta
+            label: Invitation banner with button
+            fields:
+              - { name: heading, label: Heading, type: string }
+              - { name: text, label: Text, type: text }
+              - { name: button_label, label: Button text, type: string }
+              - { name: button_link, label: Button link, type: string }
+
+  - name: site
+    label: Footer & site settings
+    type: file
+    path: content/site.json
+    format: json
+    operations: { delete: false }
+    fields:
+      - { name: church_name, label: Church name (footer), type: string }
+      - { name: footer_blurb, label: Footer description, type: text }
+      - { name: email, label: Email, type: string }
+      - { name: meeting_place, label: Meeting place, type: string }
+      - { name: service_time, label: Service time, type: string }
+      - { name: footer_tagline, label: Footer closing line, type: string }
+      - { name: youtube, label: YouTube link, type: string }
+      - { name: instagram, label: Instagram link, type: string }
+      - { name: facebook, label: Facebook link, type: string }

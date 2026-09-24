@@ -9,7 +9,7 @@ import os
 from PIL import Image, ImageOps
 
 RAW = os.path.join(os.path.dirname(__file__), "assets-raw")
-OUT = os.path.join(os.path.dirname(__file__), "site", "assets", "img")
+OUT = os.path.join(os.path.dirname(__file__), "static", "assets", "img")
 os.makedirs(OUT, exist_ok=True)
 
 # source hash -> (friendly name, rotate_degrees, alt text)

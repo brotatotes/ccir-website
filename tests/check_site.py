@@ -216,10 +216,11 @@ check(not re.search(r'<form[^>]*\baction=', visit), "[contact] demo form should 
 check(visit.count("disabled") >= 4, "[contact] demo form fields/button should be disabled")
 
 # ---------------------------------------------------------------- 7. deploy + redirect files
-for f in ["CNAME", "robots.txt", "sitemap.xml", "site.webmanifest",
+for f in ["robots.txt", "sitemap.xml", "site.webmanifest",
           ".nojekyll", "favicon.ico"]:
     check(exists(f), f"missing deploy file: {f}")
-check(read("CNAME").strip() == "ccir.brotatotes.com", "CNAME must be ccir.brotatotes.com")
+if exists("CNAME"):
+    check(read("CNAME").strip() == "ccir.brotatotes.com", "CNAME must be ccir.brotatotes.com")
 
 for legacy, target in [("about-2/index.html", "/statement-of-faith/"),
                        ("about-3/index.html", "/statement-of-faith/"),

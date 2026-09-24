@@ -1,0 +1,53 @@
+          <div class="form-panel">
+            <h2 style="font-size:1.3rem;margin:0 0 1rem;">Send us a message</h2>
+
+            <!--
+              ==========================================================
+              CONTACT FORM — CURRENTLY IN DEMO (DISABLED) MODE
+              ==========================================================
+              This form is intentionally disabled until a Formspree
+              endpoint is connected. It will NOT send anything yet, so
+              no visitor message is silently lost.
+
+              TO TURN IT ON (about 5 minutes, no coding):
+                1. Create a free account at https://formspree.io
+                2. Make a new form that delivers to
+                   christianchurchinraleigh@gmail.com and copy its
+                   endpoint, e.g.  https://formspree.io/f/abcdwxyz
+                3. In this file, find the <form> tag below and:
+                     - set   action="https://formspree.io/f/abcdwxyz"
+                     - set   method="POST"
+                     - remove the   data-demo="true"   attribute
+                4. Delete this notice block and the orange banner
+                   (the <div class="form-note"> … </div>) above the form,
+                   and remove the `disabled` attribute from each field
+                   and the submit button.
+              Full step-by-step is in README.md.
+              ==========================================================
+            -->
+            <div class="form-note" role="note">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+              <span><strong>This form isn't live yet.</strong> While we finish connecting it, please email us directly at
+              <a href="mailto:christianchurchinraleigh@gmail.com">christianchurchinraleigh@gmail.com</a> — we read every message.</span>
+            </div>
+
+            <form data-demo="true" aria-describedby="form-demo-hint" novalidate>
+              <div class="field">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" autocomplete="name" placeholder="First and last name" disabled>
+              </div>
+              <div class="field">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" disabled>
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us a little about yourself or ask us anything…" disabled></textarea>
+              </div>
+              <button class="btn btn--accent" type="submit" disabled aria-disabled="true">Send message (coming soon)</button>
+              <p id="form-demo-hint" style="margin:.9rem 0 0;font-size:.85rem;color:var(--muted);">
+                Prefer email? Write to us at
+                <a href="mailto:christianchurchinraleigh@gmail.com">christianchurchinraleigh@gmail.com</a>.
+              </p>
+            </form>
+          </div>
