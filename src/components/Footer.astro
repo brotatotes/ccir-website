@@ -1,0 +1,39 @@
+---
+import site from '../../content/site.json';
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">{site.church_name}</span>
+        <p>{site.footer_blurb}</p>
+        <div class="social">
+          <a href={site.youtube} aria-label="YouTube channel" rel="noopener">YouTube</a>
+          <a href={site.instagram} aria-label="Instagram" rel="noopener">Instagram</a>
+          <a href={site.facebook} aria-label="Facebook" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/statement-of-faith/">Statement of Faith</a></li>
+          <li><a href="/messages/">Sunday Messages</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li>Meeting place: {site.meeting_place}</li>
+          <li>{site.service_time}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {new Date().getFullYear()} {site.church_name}. Looking forward to connecting!</span>
+      <span>{site.footer_tagline}</span>
+    </div>
+  </div>
+</footer>

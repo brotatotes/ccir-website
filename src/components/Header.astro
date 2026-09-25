@@ -1,0 +1,25 @@
+---
+interface Props { active?: 'home' | 'faith' | 'messages' | 'contact' | string; }
+const { active = '' } = Astro.props;
+const links = [
+  { key: 'home', href: '/', label: 'Home' },
+  { key: 'faith', href: '/statement-of-faith/', label: 'Statement of Faith' },
+  { key: 'messages', href: '/messages/', label: 'Sunday Messages' },
+];
+---
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand" href="/">
+      <img class="mark" src="/assets/img/logo-mark.svg" width="40" height="40" alt="" />
+      <span class="brand-name">Christian Church<small>In Raleigh</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+      Menu
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      {links.map((link) => <li><a href={link.href} aria-current={active === link.key ? 'page' : undefined}>{link.label}</a></li>)}
+      <li class="nav-cta"><a href="/contact/" aria-current={active === 'contact' ? 'page' : undefined}>Contact</a></li>
+    </ul>
+  </nav>
+</header>

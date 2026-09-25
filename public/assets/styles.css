@@ -19,8 +19,8 @@
   --muted: #5c6070;
 
   /* Typography */
-  --display: "Montserrat", "Segoe UI", system-ui, sans-serif;
-  --body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --display: "EB Garamond", Georgia, serif;
+  --body: "EB Garamond", Georgia, serif;
 
   /* Rhythm */
   --maxw: 1120px;

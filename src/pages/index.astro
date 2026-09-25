@@ -1,19 +1,71 @@
 ---
-const title = 'Christian Church In Raleigh';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import home from '../../content/home.json';
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="A fellowship of believers centered on Christ and the Bible in the Raleigh–Durham area." />
-    <link rel="icon" href="/favicon.ico" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <main>
-      <h1>{title}</h1>
-      <p>The full site content is being moved into Astro.</p>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  title="Christian Church In Raleigh — A church centered on Christ and the Bible"
+  description="Christian Church In Raleigh is a fellowship of believers in the Raleigh–Durham area gathering around Christ and the Bible. Sunday service at 10AM, weekly Bible studies, and home gatherings. All are welcome."
+  active="home"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Church',
+    name: 'Christian Church In Raleigh',
+    url: 'https://ccir.brotatotes.com/',
+    email: 'christianchurchinraleigh@gmail.com',
+    description: 'A fellowship of believers centered on Christ and the Bible in the Raleigh–Durham area.',
+    areaServed: 'Raleigh–Durham, North Carolina',
+  })} />
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-media">
+      <picture>
+        <source type="image/webp" srcset="/assets/img/hero-fellowship-800.webp 800w, /assets/img/hero-fellowship-1280.webp 1280w, /assets/img/hero-fellowship-1920.webp 1920w" sizes="100vw" />
+        <img src={home.hero.image} srcset="/assets/img/hero-fellowship-800.jpg 800w, /assets/img/hero-fellowship-1280.jpg 1280w, /assets/img/hero-fellowship-1920.jpg 1920w" sizes="100vw" width="1920" height="1024" alt={home.hero.image_alt} fetchpriority="high" />
+      </picture>
+    </div>
+    <div class="wrap hero-inner">
+      <h1 id="hero-title">{home.hero.heading_intro} <span class="accent">{home.hero.heading_highlight}</span></h1>
+      <p>{home.hero.text}</p>
+      <div class="hero-actions">
+        <a class="btn btn--accent" href="/contact/">Contact us</a>
+        <a class="btn btn--ghost" href="/messages/">Watch a message</a>
+      </div>
+      <div class="hero-meta"><span>{home.hero.service_time}</span><span>{home.hero.location}</span></div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap split">
+      <div class="section-head"><p class="eyebrow">{home.who.eyebrow}</p><h2 class="section-title">{home.who.heading}</h2></div>
+      <div class="prose"><p>{home.who.text}</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split split--image">
+      <div><p class="eyebrow">{home.believe.eyebrow}</p><h2 class="section-title">{home.believe.heading}</h2><div class="prose" set:html={home.believe.body} /></div>
+      <picture><source type="image/webp" srcset="/assets/img/gallery-home-group-1000.webp" /><img src={home.believe.image} loading="lazy" alt={home.believe.image_alt} /></picture>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="section-head center"><p class="eyebrow">{home.gatherings.eyebrow}</p><h2 class="section-title">{home.gatherings.heading}</h2></div>
+      <div class="cards-grid">
+        {home.gatherings.cards.map((card) => <article class="card"><h3>{card.title}</h3><ul class="schedule">{card.times.map((time) => <li><span class="day">{time.day}</span><span class="time">{time.time}</span></li>)}</ul><p>{card.note}</p></article>)}
+      </div>
+      <p class="text-center mt-2" set:html={home.gatherings.footer_note} />
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="wrap"><div class="section-head"><p class="eyebrow">{home.life.eyebrow}</p><h2 class="section-title">{home.life.heading}</h2></div><div class="three-col">{home.life.columns.map((column) => <div class="prose"><h3>{column.heading}</h3><p>{column.text}</p></div>)}</div><div class="prose prose--wide" set:html={home.life.body} /></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap"><div class="section-head center"><p class="eyebrow">{home.gallery.eyebrow}</p><h2 class="section-title">{home.gallery.heading}</h2></div><div class="gallery-grid">{home.gallery.photos.map((photo) => <figure><img src={photo.image} loading="lazy" width="600" height="450" alt={photo.alt} /></figure>)}</div></div>
+  </section>
+
+  <section class="section section--navy cta-band"><div class="wrap"><h2>{home.cta.heading}</h2><p>{home.cta.text}</p><div class="cta-actions"><a class="btn btn--accent" href="/contact/">Contact us</a><a class="btn btn--ghost" href="/messages/">Watch a message</a></div></div></section>
+</BaseLayout>
