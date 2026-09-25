@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import CtaBand from '../components/CtaBand.astro';
+import faith from '../../content/statement-of-faith.json';
+const numberWords = ['One','Two','Three','Four','Five','Six','Seven','Eight','Nine'];
+---
+<BaseLayout title="Statement of Faith — Christian Church In Raleigh" description="The nine-point Statement of Faith of Christian Church In Raleigh: the Triune God, the incarnation and resurrection of Christ, the indwelling Spirit, the infallibility of Scripture, salvation by grace through faith, the Church, and the oneness of the Spirit." path="/statement-of-faith/" active="faith">
+  <PageBanner eyebrow={faith.eyebrow} title={faith.title} intro={faith.intro} />
+  <section class="section"><div class="wrap"><div class="prose" style="max-width:48rem;">
+    {faith.points.map((point, index) => <><article class="stack"><p class="eyebrow" style="color:var(--accent);">{numberWords[index]}</p><h2 style="font-size:1.4rem;margin:.1rem 0 .5rem;">{point.heading}</h2><p>{point.text}</p></article>{index < faith.points.length - 1 && <hr style="border:none;border-top:1px solid var(--line);margin:2.5rem 0;" />}</>)}
+  </div></div></section>
+  <CtaBand heading={faith.cta_heading} text={faith.cta_text}><a class="btn btn--accent" href="/contact/">Contact us</a><a class="btn btn--ghost" href="/messages/">Watch Sunday messages</a></CtaBand>
+</BaseLayout>

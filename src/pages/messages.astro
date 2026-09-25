@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import CtaBand from '../components/CtaBand.astro';
+import messages from '../../content/messages.json';
+const youtubeId = (url: string) => url.match(/(?:v=|youtu\.be\/|embed\/|shorts\/|live\/)([A-Za-z0-9_-]{11})/)?.[1] ?? '';
+---
+<BaseLayout title="Sunday Messages — Christian Church In Raleigh" description="Watch recent messages and singing from Christian Church In Raleigh. Videos are hosted on our YouTube channel, @CCIR_." path="/messages/" active="messages">
+  <link slot="head" rel="preconnect" href="https://www.youtube-nocookie.com" />
+  <PageBanner eyebrow={messages.eyebrow} title={messages.title} intro={messages.intro}><div class="cta-actions" style="justify-content:flex-start;margin-top:1.4rem;"><a class="btn btn--accent" href={messages.youtube_channel} rel="noopener">Visit our YouTube channel</a></div></PageBanner>
+  <section class="section"><div class="wrap"><div class="video-grid">
+    {messages.videos.map((video) => { const id = youtubeId(video.youtube); return <article class="video-card"><div class="video-embed" role="button" tabindex="0" data-yt={id} data-title={video.title} aria-label={`Play video: ${video.title}`}><picture><source type="image/webp" srcset={`/assets/img/thumbs/${id}.webp`} /><img src={`/assets/img/thumbs/${id}.jpg`} loading="lazy" width="640" height="360" alt={`Thumbnail for ${video.title}`} /></picture><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div><div class="meta"><h3>{video.title}</h3><a href={video.youtube} rel="noopener">Watch on YouTube →</a></div></article> })}
+  </div><p class="text-center mt-2" style="color:var(--muted);">Looking for more? All of our messages live on <a href={messages.youtube_channel} rel="noopener">YouTube @CCIR_</a>.</p></div></section>
+  <CtaBand heading={messages.cta_heading} text={messages.cta_text}><a class="btn btn--accent" href="/contact/">Contact us</a></CtaBand>
+</BaseLayout>

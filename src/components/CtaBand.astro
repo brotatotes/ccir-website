@@ -1,0 +1,7 @@
+---
+interface Props { heading: string; text: string; }
+const { heading, text } = Astro.props;
+---
+<section class="section section--navy cta-band">
+  <div class="wrap"><h2>{heading}</h2><p>{text}</p><div class="cta-actions"><slot /></div></div>
+</section>

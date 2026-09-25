@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import CustomSection from '../components/CustomSection.astro';
+export async function getStaticPaths() {
+  const files = import.meta.glob('../../content/pages/*.json', { eager: true });
+  return Object.entries(files).filter(([, mod]: any) => mod.default?.published !== false).map(([path, mod]: any) => ({ params: { slug: path.split('/').pop().replace('.json', '') }, props: { page: mod.default } }));
+}
+const { page } = Astro.props;
+---
+<BaseLayout title={`${page.title} — Christian Church In Raleigh`} description={page.description || page.intro || page.title} path={`/${Astro.params.slug}/`} active={`page-${Astro.params.slug}`}>
+  <PageBanner eyebrow={page.eyebrow} title={page.title} intro={page.intro} />
+  {page.sections?.map((section) => <CustomSection section={section} />)}
+</BaseLayout>

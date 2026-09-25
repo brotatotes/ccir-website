@@ -1,5 +1,7 @@
 ---
 import site from '../../content/site.json';
+const customFiles = import.meta.glob('../../content/pages/*.json', { eager: true });
+const customLinks = Object.entries(customFiles).map(([path, mod]: any) => ({ href: `/${path.split('/').pop().replace('.json', '')}/`, label: mod.default.menu_label || mod.default.title, order: mod.default.menu_order || 99, show: mod.default.show_in_menu && mod.default.published !== false })).filter((item) => item.show).sort((a, b) => a.order - b.order);
 ---
 <footer class="site-footer">
   <div class="wrap">
@@ -19,6 +21,7 @@ import site from '../../content/site.json';
           <li><a href="/">Home</a></li>
           <li><a href="/statement-of-faith/">Statement of Faith</a></li>
           <li><a href="/messages/">Sunday Messages</a></li>
+          {customLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </div>

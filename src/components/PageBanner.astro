@@ -1,0 +1,12 @@
+---
+interface Props { eyebrow?: string; title: string; intro?: string; }
+const { eyebrow = '', title, intro = '' } = Astro.props;
+---
+<section class="section section--navy" style="padding-block:clamp(3rem,7vw,5rem);">
+  <div class="wrap">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1 id="page-title" class="section-title" style="color:#fff;max-width:24ch;">{title}</h1>
+    {intro && <p class="lede" style="max-width:46rem;">{intro}</p>}
+    <slot />
+  </div>
+</section>

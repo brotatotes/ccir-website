@@ -1,10 +1,19 @@
 ---
 interface Props { active?: 'home' | 'faith' | 'messages' | 'contact' | string; }
 const { active = '' } = Astro.props;
+const customFiles = import.meta.glob('../../content/pages/*.json', { eager: true });
+const customLinks = Object.entries(customFiles).map(([path, mod]: any) => ({
+  key: `page-${path.split('/').pop().replace('.json', '')}`,
+  href: `/${path.split('/').pop().replace('.json', '')}/`,
+  label: mod.default.menu_label || mod.default.title,
+  order: mod.default.menu_order || 99,
+  show: mod.default.show_in_menu && mod.default.published !== false,
+})).filter((item) => item.show).sort((a, b) => a.order - b.order);
 const links = [
   { key: 'home', href: '/', label: 'Home' },
   { key: 'faith', href: '/statement-of-faith/', label: 'Statement of Faith' },
   { key: 'messages', href: '/messages/', label: 'Sunday Messages' },
+  ...customLinks,
 ];
 ---
 <header class="site-header">

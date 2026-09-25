@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import CtaBand from '../components/CtaBand.astro';
+import contact from '../../content/contact.json';
+import site from '../../content/site.json';
+---
+<BaseLayout title="Contact — Christian Church In Raleigh" description="Contact Christian Church In Raleigh and learn about Sunday service, weekly Bible studies, prayer, and home gatherings in the Raleigh–Durham area." path="/contact/" active="contact">
+  <PageBanner eyebrow={contact.eyebrow} title={contact.title} intro={contact.intro} />
+  <section class="section section--tint"><div class="wrap"><div class="section-head"><p class="eyebrow">{contact.schedule_eyebrow}</p><h2 class="section-title">{contact.schedule_heading}</h2></div><div class="grid cols-3">{contact.schedule.map((item) => <article class="card"><h3>{item.title}</h3><ul class="schedule">{item.times.map((time) => <li><span class="day">{time.day}</span><span class="time">{time.time}</span></li>)}</ul><p style="margin:.9rem 0 0;color:var(--muted);font-size:.95rem;">{item.note}</p></article>)}</div></div></section>
+  <section class="section"><div class="wrap"><div class="contact-grid"><div><div class="section-head"><p class="eyebrow">Get in touch</p><h2 class="section-title">Reach out any time</h2></div><ul class="info-list">
+    <li><span><span class="label">Email</span><a href={`mailto:${contact.email}`}>{contact.email}</a></span></li>
+    <li><span><span class="label">Where we meet</span>{contact.meeting_place}<br /><span style="color:var(--muted);font-size:.92rem;">{contact.meeting_note}</span></span></li>
+    <li><span><span class="label">Sunday service</span>{contact.sunday_service}</span></li>
+    <li><span><span class="label">Follow along</span><a href={site.youtube}>YouTube</a> · <a href={site.instagram}>Instagram</a> · <a href={site.facebook}>Facebook</a></span></li>
+  </ul></div><div class="form-panel"><h2 style="font-size:1.3rem;margin:0 0 1rem;">Send us a message</h2><div class="form-note" role="note"><span><strong>This form isn't live yet.</strong> While we finish connecting Formspree, please email us directly at <a href={`mailto:${contact.email}`}>{contact.email}</a>. We read every message.</span></div><form data-demo="true" aria-describedby="form-demo-hint" novalidate><div class="field"><label for="name">Your name</label><input type="text" id="name" name="name" autocomplete="name" placeholder="First and last name" disabled /></div><div class="field"><label for="email">Email address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" disabled /></div><div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us a little about yourself or ask us anything…" disabled></textarea></div><button class="btn btn--accent" type="submit" disabled aria-disabled="true">Send message (coming soon)</button><p id="form-demo-hint">Prefer email? Write to us at <a href={`mailto:${contact.email}`}>{contact.email}</a>.</p></form></div></div></div></section>
+  <CtaBand heading={contact.cta_heading} text={contact.cta_text}><a class="btn btn--accent" href={`mailto:${contact.email}`}>Email us</a></CtaBand>
+</BaseLayout>
