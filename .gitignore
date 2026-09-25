@@ -18,3 +18,8 @@ SOURCE_INVENTORY.md
 source-pages.json
 PROJECT_DECISIONS.md
 /site/
+
+# Astro and Node build output
+/node_modules/
+/dist/
+/.astro/
