@@ -31,41 +31,41 @@ import home from '../../content/home.json';
         <a class="btn btn--accent" href="/contact/">Contact us</a>
         <a class="btn btn--ghost" href="/messages/">Watch a message</a>
       </div>
-      <div class="hero-meta"><span>{home.hero.service_time}</span><span>{home.hero.location}</span></div>
+      <div class="hero-meta"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{home.hero.service_time}</span><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>{home.hero.location}</span></div>
     </div>
   </section>
 
   <section class="section section--tint">
-    <div class="wrap split">
-      <div class="section-head"><p class="eyebrow">{home.who.eyebrow}</p><h2 class="section-title">{home.who.heading}</h2></div>
-      <div class="prose"><p>{home.who.text}</p></div>
+    <div class="wrap">
+      <div class="section-head center"><p class="eyebrow">{home.who.eyebrow}</p><h2 class="section-title">{home.who.heading}</h2></div>
+      <p class="lead-quote text-center" style="margin-inline:auto;">{home.who.text}</p>
     </div>
   </section>
 
   <section class="section">
-    <div class="wrap split split--image">
-      <div><p class="eyebrow">{home.believe.eyebrow}</p><h2 class="section-title">{home.believe.heading}</h2><div class="prose" set:html={home.believe.body} /></div>
-      <picture><source type="image/webp" srcset="/assets/img/gallery-home-group-1000.webp" /><img src={home.believe.image} loading="lazy" alt={home.believe.image_alt} /></picture>
+    <div class="wrap split">
+      <div class="split-media"><picture><source type="image/webp" srcset="/assets/img/gallery-home-group-1000.webp" /><img src={home.believe.image} loading="lazy" alt={home.believe.image_alt} /></picture></div>
+      <div><p class="eyebrow">{home.believe.eyebrow}</p><h2 class="section-title">{home.believe.heading}</h2><div class="prose stack mt-2" set:html={home.believe.body} /></div>
     </div>
   </section>
 
   <section class="section section--tint">
     <div class="wrap">
       <div class="section-head center"><p class="eyebrow">{home.gatherings.eyebrow}</p><h2 class="section-title">{home.gatherings.heading}</h2></div>
-      <div class="cards-grid">
-        {home.gatherings.cards.map((card) => <article class="card"><h3>{card.title}</h3><ul class="schedule">{card.times.map((time) => <li><span class="day">{time.day}</span><span class="time">{time.time}</span></li>)}</ul><p>{card.note}</p></article>)}
+      <div class="grid cols-3">
+        {home.gatherings.cards.map((card, index) => <article class="card"><div class="card-icon" aria-hidden="true">{index === 0 ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5a2 2 0 012-2h6v16H6a2 2 0 00-2 2V5z"/><path d="M20 5a2 2 0 00-2-2h-6v16h6a2 2 0 012 2V5z"/></svg> : index === 1 ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg> : <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3"/><path d="M12 21a6 6 0 006-6c0-3-2.5-5-6-9-3.5 4-6 6-6 9a6 6 0 006 6z"/></svg>}</div><h3>{card.title}</h3><ul class="schedule">{card.times.map((time) => <li><span class="day">{time.day}</span><span class="time">{time.time}</span></li>)}</ul><p style="margin:.9rem 0 0;color:var(--muted);font-size:.95rem;">{card.note}</p></article>)}
       </div>
       <p class="text-center mt-2" set:html={home.gatherings.footer_note} />
     </div>
   </section>
 
-  <section class="section section--navy">
-    <div class="wrap"><div class="section-head"><p class="eyebrow">{home.life.eyebrow}</p><h2 class="section-title">{home.life.heading}</h2></div><div class="three-col">{home.life.columns.map((column) => <div class="prose"><h3>{column.heading}</h3><p>{column.text}</p></div>)}</div><div class="prose prose--wide" set:html={home.life.body} /></div>
-  </section>
-
   <section class="section">
-    <div class="wrap"><div class="section-head center"><p class="eyebrow">{home.gallery.eyebrow}</p><h2 class="section-title">{home.gallery.heading}</h2></div><div class="gallery-grid">{home.gallery.photos.map((photo) => <figure><img src={photo.image} loading="lazy" width="600" height="450" alt={photo.alt} /></figure>)}</div></div>
+    <div class="wrap"><div class="section-head"><p class="eyebrow">{home.life.eyebrow}</p><h2 class="section-title">{home.life.heading}</h2></div><div class="grid cols-3" style="align-items:start;">{home.life.columns.map((column) => <div class="prose"><h3>{column.heading}</h3><p>{column.text}</p></div>)}</div><div class="prose mt-2" style="max-width:52rem;" set:html={home.life.body} /></div>
   </section>
 
-  <section class="section section--navy cta-band"><div class="wrap"><h2>{home.cta.heading}</h2><p>{home.cta.text}</p><div class="cta-actions"><a class="btn btn--accent" href="/contact/">Contact us</a><a class="btn btn--ghost" href="/messages/">Watch a message</a></div></div></section>
+  <section class="section section--tint">
+    <div class="wrap"><div class="section-head center"><p class="eyebrow">{home.gallery.eyebrow}</p><h2 class="section-title">{home.gallery.heading}</h2></div><div class="gallery">{home.gallery.photos.map((photo) => <figure><img src={photo.image} loading="lazy" width="600" height="450" alt={photo.alt} /></figure>)}</div></div>
+  </section>
+
+  <section class="section section--navy cta-band"><div class="wrap"><h2>{home.cta.heading}</h2><p>{home.cta.text}</p><div class="cta-actions"><a class="btn btn--accent" href="/contact/">Contact us</a><a class="btn btn--ghost" href="mailto:christianchurchinraleigh@gmail.com">Email us</a></div></div></section>
 </BaseLayout>
