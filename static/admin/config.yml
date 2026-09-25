@@ -1,0 +1,629 @@
+app_title: CCIR website editor
+site_url: https://ccir.brotatotes.com
+display_url: https://ccir.brotatotes.com
+show_preview_links: true
+backend:
+  name: github
+  repo: brotatotes/ccir-website
+  branch: main
+  auth_methods:
+  - token
+media_folder: static/assets/img
+public_folder: /assets/img
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+slug:
+  encoding: ascii
+  clean_accents: true
+field_defaults:
+  richtext:
+    modes:
+    - rich_text
+    buttons:
+    - bold
+    - italic
+    - link
+    - heading-two
+    - heading-three
+    - bulleted-list
+    - numbered-list
+    - quote
+    editor_components:
+    - image
+    use_emoji_autocomplete: false
+output:
+  json:
+    indent_size: 2
+singletons:
+- name: home
+  label: Home page
+  file: content/home.json
+  preview_path: /
+  fields:
+  - name: hero
+    label: Top banner
+    required: false
+    widget: object
+    fields:
+    - name: heading_intro
+      label: Heading (first part)
+      required: false
+      widget: string
+    - name: heading_highlight
+      label: Heading (highlighted part)
+      required: false
+      widget: string
+    - name: text
+      label: Welcome text
+      required: false
+      widget: text
+    - name: image
+      label: Background photo
+      required: false
+      widget: image
+    - name: image_alt
+      label: Photo description (for screen readers)
+      required: false
+      widget: string
+    - name: service_time
+      label: Service time line
+      required: false
+      widget: string
+    - name: location
+      label: Location line
+      required: false
+      widget: string
+  - name: who
+    label: Who we are
+    required: false
+    widget: object
+    fields:
+    - name: eyebrow
+      label: Small label above heading
+      required: false
+      widget: string
+    - name: heading
+      label: Heading
+      required: false
+      widget: string
+    - name: text
+      label: Text
+      required: false
+      widget: text
+  - name: believe
+    label: What we believe
+    required: false
+    widget: object
+    fields:
+    - name: eyebrow
+      label: Small label above heading
+      required: false
+      widget: string
+    - name: heading
+      label: Heading
+      required: false
+      widget: string
+    - name: image
+      label: Photo
+      required: false
+      widget: image
+    - name: image_alt
+      label: Photo description
+      required: false
+      widget: string
+    - name: body
+      label: Text
+      required: false
+      widget: richtext
+  - name: gatherings
+    label: Weekly gatherings
+    required: false
+    widget: object
+    fields:
+    - name: eyebrow
+      label: Small label above heading
+      required: false
+      widget: string
+    - name: heading
+      label: Heading
+      required: false
+      widget: string
+    - name: cards
+      label: Gatherings
+      required: false
+      widget: list
+      fields:
+      - name: title
+        label: Name
+        required: false
+        widget: string
+      - name: icon
+        label: Icon
+        required: false
+        widget: select
+        options:
+        - label: Bible
+          value: bible
+        - label: House
+          value: house
+        - label: Prayer
+          value: prayer
+        - label: People
+          value: people
+        - label: Calendar
+          value: calendar
+      - name: times
+        label: Times
+        required: false
+        widget: list
+        fields:
+        - name: day
+          label: Day
+          required: false
+          widget: string
+        - name: time
+          label: Time
+          required: false
+          widget: string
+        collapsed: false
+        summary: '{{day}} · {{time}}'
+      - name: note
+        label: Note
+        required: false
+        widget: text
+      collapsed: true
+      summary: '{{title}}'
+    - name: footer_note
+      label: Note under the gatherings
+      required: false
+      widget: richtext
+      editor_components: []
+  - name: life
+    label: Church life
+    required: false
+    widget: object
+    fields:
+    - name: eyebrow
+      label: Small label above heading
+      required: false
+      widget: string
+    - name: heading
+      label: Heading
+      required: false
+      widget: string
+    - name: columns
+      label: Columns
+      required: false
+      widget: list
+      fields:
+      - name: heading
+        label: Heading
+        required: false
+        widget: string
+      - name: text
+        label: Text
+        required: false
+        widget: text
+      max: 3
+      collapsed: true
+      summary: '{{heading}}'
+    - name: body
+      label: Text below the columns
+      required: false
+      widget: richtext
+  - name: gallery
+    label: Photo gallery
+    required: false
+    widget: object
+    fields:
+    - name: eyebrow
+      label: Small label above heading
+      required: false
+      widget: string
+    - name: heading
+      label: Heading
+      required: false
+      widget: string
+    - name: photos
+      label: Photos
+      required: false
+      widget: list
+      fields:
+      - name: image
+        label: Photo
+        required: false
+        widget: image
+      - name: alt
+        label: Photo description
+        required: false
+        widget: string
+      collapsed: true
+      summary: '{{alt}}'
+  - name: cta
+    label: Bottom invitation
+    required: false
+    widget: object
+    fields:
+    - name: heading
+      label: Heading
+      required: false
+      widget: string
+    - name: text
+      label: Text
+      required: false
+      widget: text
+- name: messages
+  label: Sunday Messages
+  file: content/messages.json
+  preview_path: /messages/
+  fields:
+  - name: videos
+    label: Videos (newest first)
+    hint: Paste the YouTube link for each video. Drag to reorder.
+    required: false
+    widget: list
+    fields:
+    - name: title
+      label: Title
+      required: true
+      widget: string
+    - name: youtube
+      label: YouTube link
+      required: true
+      widget: string
+    collapsed: true
+    summary: '{{title}}'
+  - name: eyebrow
+    label: Small label above page title
+    required: false
+    widget: string
+  - name: title
+    label: Page title
+    required: false
+    widget: string
+  - name: intro
+    label: Intro text
+    required: false
+    widget: text
+  - name: youtube_channel
+    label: YouTube channel link
+    required: false
+    widget: string
+  - name: cta_heading
+    label: Bottom invitation heading
+    required: false
+    widget: string
+  - name: cta_text
+    label: Bottom invitation text
+    required: false
+    widget: text
+- name: faith
+  label: Statement of Faith
+  file: content/statement-of-faith.json
+  preview_path: /statement-of-faith/
+  fields:
+  - name: eyebrow
+    label: Small label above page title
+    required: false
+    widget: string
+  - name: title
+    label: Page title
+    required: false
+    widget: string
+  - name: intro
+    label: Intro text
+    required: false
+    widget: text
+  - name: points
+    label: Points (numbered automatically)
+    required: false
+    widget: list
+    fields:
+    - name: heading
+      label: Heading
+      required: false
+      widget: string
+    - name: text
+      label: Text
+      required: false
+      widget: text
+    collapsed: true
+    summary: '{{heading}}'
+  - name: cta_heading
+    label: Bottom invitation heading
+    required: false
+    widget: string
+  - name: cta_text
+    label: Bottom invitation text
+    required: false
+    widget: text
+- name: contact
+  label: Contact page
+  file: content/contact.json
+  preview_path: /contact/
+  fields:
+  - name: eyebrow
+    label: Small label above page title
+    required: false
+    widget: string
+  - name: title
+    label: Page title
+    required: false
+    widget: string
+  - name: intro
+    label: Intro text
+    required: false
+    widget: text
+  - name: schedule_eyebrow
+    label: Schedule small label
+    required: false
+    widget: string
+  - name: schedule_heading
+    label: Schedule heading
+    required: false
+    widget: string
+  - name: schedule
+    label: Weekly schedule
+    required: false
+    widget: list
+    fields:
+    - name: title
+      label: Name
+      required: false
+      widget: string
+    - name: times
+      label: Times
+      required: false
+      widget: list
+      fields:
+      - name: day
+        label: Day
+        required: false
+        widget: string
+      - name: time
+        label: Time
+        required: false
+        widget: string
+      collapsed: false
+      summary: '{{day}} · {{time}}'
+    - name: note
+      label: Note
+      required: false
+      widget: text
+    collapsed: true
+    summary: '{{title}}'
+  - name: email
+    label: Email
+    required: false
+    widget: string
+  - name: meeting_place
+    label: Where we meet
+    required: false
+    widget: string
+  - name: meeting_note
+    label: Note under meeting place
+    required: false
+    widget: string
+  - name: sunday_service
+    label: Sunday service line
+    required: false
+    widget: string
+  - name: cta_heading
+    label: Bottom invitation heading
+    required: false
+    widget: string
+  - name: cta_text
+    label: Bottom invitation text
+    required: false
+    widget: text
+- name: site
+  label: Footer & site settings
+  file: content/site.json
+  preview_path: /
+  fields:
+  - name: church_name
+    label: Church name (footer)
+    required: false
+    widget: string
+  - name: footer_blurb
+    label: Footer description
+    required: false
+    widget: text
+  - name: email
+    label: Email
+    required: false
+    widget: string
+  - name: meeting_place
+    label: Meeting place
+    required: false
+    widget: string
+  - name: service_time
+    label: Service time
+    required: false
+    widget: string
+  - name: footer_tagline
+    label: Footer closing line
+    required: false
+    widget: string
+  - name: youtube
+    label: YouTube link
+    required: false
+    widget: string
+  - name: instagram
+    label: Instagram link
+    required: false
+    widget: string
+  - name: facebook
+    label: Facebook link
+    required: false
+    widget: string
+collections:
+- name: pages
+  label: Extra pages
+  label_singular: page
+  description: Extra pages built from sections. Tick “Show in the top menu” to add a page to the navigation.
+  folder: content/pages
+  format: json
+  extension: json
+  create: true
+  delete: true
+  slug: '{{title}}'
+  identifier_field: title
+  summary: '{{title}}'
+  preview_path: /{{slug}}/
+  fields:
+  - name: title
+    label: Page title
+    hint: The web address is made from the title when the page is first created.
+    required: true
+    widget: string
+  - name: eyebrow
+    label: Small label above the title
+    required: false
+    widget: string
+  - name: intro
+    label: Intro text
+    required: false
+    widget: text
+  - name: show_in_menu
+    label: Show in the top menu
+    required: false
+    widget: boolean
+  - name: menu_label
+    label: Menu label (optional, defaults to the title)
+    required: false
+    widget: string
+  - name: menu_order
+    label: Menu position (1 = first)
+    required: false
+    widget: number
+    value_type: int
+  - name: published
+    label: Published
+    required: false
+    default: true
+    widget: boolean
+  - name: sections
+    label: Sections
+    hint: Add, remove, and drag sections to build the page.
+    required: false
+    widget: list
+    typeKey: type
+    label_singular: section
+    types:
+    - name: text
+      label: Text
+      widget: object
+      fields:
+      - name: heading
+        label: Heading (optional)
+        required: false
+        widget: string
+      - name: body
+        label: Text
+        required: false
+        widget: richtext
+      - name: shaded
+        label: Shaded background
+        required: false
+        widget: boolean
+    - name: image_text
+      label: Photo with text
+      widget: object
+      fields:
+      - name: heading
+        label: Heading (optional)
+        required: false
+        widget: string
+      - name: body
+        label: Text
+        required: false
+        widget: richtext
+      - name: image
+        label: Photo
+        required: false
+        widget: image
+      - name: image_alt
+        label: Photo description
+        required: false
+        widget: string
+      - name: image_side
+        label: Photo side
+        required: false
+        widget: select
+        options:
+        - label: Left
+          value: left
+        - label: Right
+          value: right
+      - name: shaded
+        label: Shaded background
+        required: false
+        widget: boolean
+    - name: columns
+      label: Columns
+      widget: object
+      fields:
+      - name: heading
+        label: Heading (optional)
+        required: false
+        widget: string
+      - name: columns
+        label: Columns (2 or 3)
+        required: false
+        widget: list
+        fields:
+        - name: heading
+          label: Heading
+          required: false
+          widget: string
+        - name: text
+          label: Text
+          required: false
+          widget: richtext
+          editor_components: []
+        max: 3
+      - name: shaded
+        label: Shaded background
+        required: false
+        widget: boolean
+    - name: video
+      label: YouTube video
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        required: false
+        widget: string
+      - name: youtube
+        label: YouTube link
+        required: false
+        widget: string
+      - name: shaded
+        label: Shaded background
+        required: false
+        widget: boolean
+    - name: cta
+      label: Invitation banner with button
+      widget: object
+      fields:
+      - name: heading
+        label: Heading
+        required: false
+        widget: string
+      - name: text
+        label: Text
+        required: false
+        widget: text
+      - name: button_label
+        label: Button text
+        required: false
+        widget: string
+      - name: button_link
+        label: Button link
+        required: false
+        widget: string
+    collapsed: false
+

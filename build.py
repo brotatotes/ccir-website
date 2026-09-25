@@ -2,8 +2,8 @@
 """
 Build the Christian Church In Raleigh static site from editable content.
 
-  content/*.json         <- words, photos, videos (edited in Pages CMS)
-  content/pages/*.json   <- extra pages anyone can add in Pages CMS
+  content/*.json         <- words, photos, videos (edited in Pages CMS or Sveltia CMS)
+  content/pages/*.json   <- extra pages anyone can add in either editor
   src/templates/         <- page designs (header, layout, styling hooks)
   src/partials/          <- shared header, footer, contact form
   static/                <- CSS, JS, fonts, images, favicon (copied as-is)
@@ -13,7 +13,7 @@ Run:  python3 build.py
 Optional: BASE_PATH=/ccir-cms-test python3 build.py   (serve under a sub-path)
           NOINDEX=1                                    (hide from search engines)
 
-Python standard library only. No Node, no npm, no AI required.
+Python 3 plus the small Markdown package (requirements.txt). No Node, no npm, no AI required.
 """
 import glob
 import html
@@ -22,6 +22,8 @@ import os
 import re
 import shutil
 import sys
+
+import markdown  # pip install -r requirements.txt
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(ROOT, "content")
@@ -104,18 +106,19 @@ def esc(value):
 
 
 def rich(value):
-    """Rich-text fields are saved as HTML by the editor. Plain text is wrapped."""
+    """Rich-text fields are saved as Markdown by both editors (Pages CMS and Sveltia CMS).
+    Older content saved as HTML is passed through unchanged."""
     value = (value or "").strip()
     if not value:
         return ""
-    if not value.startswith("<"):
-        return "\n".join(f"<p>{esc(p)}</p>" for p in re.split(r"\n\s*\n", value) if p.strip())
-    return value
+    if value.startswith("<"):
+        return value
+    return markdown.markdown(value, extensions=["nl2br"])
 
 
 def inline(value):
     """Short text that may contain a link or bold (e.g. footer notes)."""
-    value = (value or "").strip()
+    value = rich(value)
     if value.startswith("<p>") and value.endswith("</p>") and value.count("<p>") == 1:
         value = value[3:-4]
     return value

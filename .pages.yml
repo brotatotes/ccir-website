@@ -45,7 +45,7 @@ content:
           - name: body
             label: Text
             type: rich-text
-            options: { format: html, switcher: false }
+            options: { format: markdown, switcher: false }
       - name: gatherings
         label: Weekly gatherings
         type: object
@@ -85,7 +85,7 @@ content:
           - name: footer_note
             label: Note under the gatherings
             type: rich-text
-            options: { format: html, switcher: false, media: false }
+            options: { format: markdown, switcher: false, media: false }
       - name: life
         label: Church life
         type: object
@@ -106,7 +106,7 @@ content:
           - name: body
             label: Text below the columns
             type: rich-text
-            options: { format: html, switcher: false }
+            options: { format: markdown, switcher: false }
       - name: gallery
         label: Photo gallery
         type: object
@@ -257,7 +257,7 @@ content:
               - name: body
                 label: Text
                 type: rich-text
-                options: { format: html }
+                options: { format: markdown }
               - { name: shaded, label: Shaded background, type: boolean }
           - name: image_text
             label: Photo with text
@@ -266,7 +266,7 @@ content:
               - name: body
                 label: Text
                 type: rich-text
-                options: { format: html }
+                options: { format: markdown }
               - { name: image, label: Photo, type: image }
               - { name: image_alt, label: Photo description, type: string }
               - name: image_side
@@ -290,7 +290,7 @@ content:
                   - name: text
                     label: Text
                     type: rich-text
-                    options: { format: html, media: false }
+                    options: { format: markdown, media: false }
               - { name: shaded, label: Shaded background, type: boolean }
           - name: video
             label: YouTube video
