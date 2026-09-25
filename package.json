@@ -4,11 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "TINA_EDITING=true tinacms dev -c \"astro dev\"",
+    "dev:site": "astro dev",
     "build": "astro build",
+    "build:editor": "TINA_EDITING=true tinacms build --local --skip-cloud-checks -c \"astro build\"",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.14.1"
+    "@astrojs/node": "^9.5.5",
+    "@tinacms/astro": "^0.7.1",
+    "astro": "^5.14.1",
+    "tinacms": "^3.14.1"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^3.1.0"
   }
 }
