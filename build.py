@@ -43,7 +43,7 @@ RESERVED = {"", "statement-of-faith", "messages", "contact", "assets", "about-2"
 
 REDIRECTS = {
     "about-2/index.html": "/statement-of-faith/",
-    "about-3/index.html": "/statement-of-faith/",
+    "about-3/index.html": "/our-commitment/",
     "visit/index.html": "/contact/",
     "visit-us/index.html": "/contact/",
 }
